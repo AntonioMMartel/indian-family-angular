@@ -1,1 +1,6 @@
 <h1>This is indian father Mehdi </h1>
+<button (click)="this.toggleCallingAbdam()">Call Abdam </button>
+<div *ngIf="calledByAbdam"> I am being called by my child Abdam (Child to Parent via @Output and EventEmitter)</div>
+<div> I am being urgently called by my child Abdam! (Child to Parent via @ViewChild)</div>
+<app-indian-child-abdam (abdamCallingMehdi)="toggleCalledByAbdam()" [callingAbdam]="this.callingAbdam">
+</app-indian-child-abdam>
