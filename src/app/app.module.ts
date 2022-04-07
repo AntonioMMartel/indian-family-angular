@@ -6,19 +6,17 @@ import { AppComponent } from './app.component';
 import { IndianFatherMehdiComponent } from './indian-father-mehdi/indian-father-mehdi.component';
 import { IndianChildAbdamComponent } from './indian-child-abdam/indian-child-abdam.component';
 import { IndianFriendBrahmadComponent } from './indian-friend-brahmad/indian-friend-brahmad.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndianFatherMehdiComponent,
     IndianChildAbdamComponent,
-    IndianFriendBrahmadComponent
+    IndianFriendBrahmadComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

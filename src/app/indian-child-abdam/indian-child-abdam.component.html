@@ -2,3 +2,13 @@
 <button (click)="this.callMehdi()">Call daddy Mehdi</button>
 
 <div *ngIf="this.callingAbdam"> I am being called by daddy Mehdi (Parent to Child via @Input )</div>
+
+<form>
+    <div class="form-group">
+        <label for="textoCamello">Send Brahmad camel message: </label>
+        <input [(ngModel)]="this.textoCamello" placeholder="This is Abdam learning Angular framework" type="text"
+            name="textoCamello" class="form-control" id="textoCamello">
+    </div>
+    <button (click)="submitCamelMessage()">Send camel message</button>
+
+</form>
