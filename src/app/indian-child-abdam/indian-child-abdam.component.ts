@@ -10,6 +10,9 @@ export class IndianChildAbdamComponent implements OnInit {
   estadoCamello: string = '';
   textoCamello: string = 'Abmad quiere mandar mensaje';
   mensaje: string = '';
+  @Input() callingAbdam: boolean = false;
+  @Output() abdamCallingMehdi = new EventEmitter<boolean>();
+
   constructor(private camellito: IndianMessageCamelService) {}
 
   ngOnInit(): void {
@@ -17,9 +20,6 @@ export class IndianChildAbdamComponent implements OnInit {
       (estado) => (this.estadoCamello = estado) // Guardamos el estado del camello
     );
   }
-
-  @Input() callingAbdam: boolean = false;
-  @Output() abdamCallingMehdi = new EventEmitter<boolean>();
 
   callMehdi() {
     this.abdamCallingMehdi.emit();

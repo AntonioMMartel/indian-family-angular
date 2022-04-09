@@ -6,13 +6,22 @@ import { IndianMessageCamelService } from '../indian-message-camel.service';
   styleUrls: ['./indian-friend-brahmad.component.sass'],
 })
 export class IndianFriendBrahmadComponent implements OnInit {
-  message: string = '';
-  textoCamello: string = '';
+  estadoCamello: string = '';
+  textoCamello: string = 'Camello preparado jaja';
+
   constructor(private camellito: IndianMessageCamelService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.camellito.estadoMensajeCamellitoActual.subscribe(
+      (msg) => (this.estadoCamello = msg)
+    );
+  }
 
   checkCamelMessage() {
     this.camellito.updateCamelloState(this.textoCamello);
+  }
+
+  getCamellito() {
+    return this.camellito;
   }
 }

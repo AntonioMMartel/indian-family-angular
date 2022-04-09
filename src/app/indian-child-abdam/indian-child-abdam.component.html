@@ -1,12 +1,13 @@
 <h1>This is indian child Abdam: </h1>
 <button (click)="this.callMehdi()">Call daddy Mehdi</button>
 
-<form *ngIf="this.estadoCamello == 'Camello preparado jaja'">
+<form ngNativeValidate *ngIf="this.estadoCamello == 'Camello preparado jaja'">
     <div class="form-group">
         <label for="textoCamello">Send Brahmad camel message: </label>
-        <input [(ngModel)]="this.mensaje" type="text" name="textoCamello" class="form-control" id="textoCamello">
+        <input [(ngModel)]="this.mensaje" type="text" name="textoCamello" class="form-control" id="textoCamello"
+            required>
     </div>
-    <button (click)="submitCamelMessage()">Ask Mehdi to send camel message to Brahmad</button>
+    <input type="submit" (click)="submitCamelMessage()" value="Ask Mehdi to send camel message to Brahmad">
 </form>
 
 <div class="" *ngIf="this.callingAbdam"> I am being called by daddy Mehdi (Parent to Child via @Input )</div>

@@ -1,5 +1,16 @@
 <h1>This is indian friend Brahmad: </h1>
+<div *ngIf="this.estadoCamello !== 'Mensaje validado por Mehdi'; else notIrrelevant">
+    I am completely irrelevant unless Abdam sends camel message!
 
-<form>
-    <button (click)="checkCamelMessage()">Check camel mail</button>
-</form>
+</div>
+<ng-template #notIrrelevant>
+    <div>I am finally not irrelevant!!</div>
+    <div>Camel is waiting for Brahmad to fetch mail!</div>
+    <div *ngIf="this.getCamellito().getCamelloMensaje() !== ''; else elseBlock">Mail contents: {{
+        this.getCamellito().getCamelloMensaje() }}</div>
+    <ng-template #elseBlock>
+        <div>Abdam is very funny child he left blank message!</div>
+    </ng-template>
+
+    <button (click)=" checkCamelMessage()">Fetch mail and let camel go</button>
+</ng-template>

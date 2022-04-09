@@ -7,7 +7,10 @@ import { IndianMessageCamelService } from '../indian-message-camel.service';
 })
 export class IndianFatherMehdiComponent implements OnInit {
   estadoCamello: string = '';
-  textoCamello: string = 'Mensaje validado por Mehdi ';
+  textoCamello: string = 'Mensaje validado por Mehdi';
+  callingAbdam: boolean = false;
+  calledByAbdam: boolean = false;
+
   constructor(private camellito: IndianMessageCamelService) {}
 
   ngOnInit(): void {
@@ -19,9 +22,6 @@ export class IndianFatherMehdiComponent implements OnInit {
   getCamellito() {
     return this.camellito;
   }
-
-  callingAbdam: boolean = false;
-  calledByAbdam: boolean = false;
 
   toggleCallingAbdam() {
     this.callingAbdam = !this.callingAbdam;
@@ -36,6 +36,6 @@ export class IndianFatherMehdiComponent implements OnInit {
   }
 
   denyCamelMessage() {
-    this.camellito.updateCamelloState(this.textoCamello);
+    this.camellito.updateCamelloState('Camello preparado jaja');
   }
 }

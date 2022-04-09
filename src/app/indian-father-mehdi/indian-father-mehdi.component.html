@@ -3,9 +3,8 @@
 <div *ngIf="calledByAbdam"> I am being called by my child Abdam (Child to Parent via @Output and EventEmitter)</div>
 <div *ngIf="this.estadoCamello == 'Abmad quiere mandar mensaje'">
     <div>Abdams message: {{ this.getCamellito().getCamelloMensaje()}}</div>
-    <button (click)="approveCamelMessage()">Aprove Abdams
-        camel
-        message</button>
+    <button (click)="approveCamelMessage()">Aprove Abdams camel message</button>
+    <button (click)="denyCamelMessage()">Deny Abdams camel message</button>
 
 </div>
 
