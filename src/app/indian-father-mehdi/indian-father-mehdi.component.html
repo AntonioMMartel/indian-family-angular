@@ -2,7 +2,11 @@
 <button (click)="this.toggleCallingAbdam()">Call Abdam </button>
 <div *ngIf="calledByAbdam"> I am being called by my child Abdam (Child to Parent via @Output and EventEmitter)</div>
 <div *ngIf="this.estadoCamello == 'Abmad quiere mandar mensaje'">
-    <div>Abdams message: {{ this.getCamellito().getCamelloMensaje()}}</div>
+    <div *ngIf="this.getCamellito().getCamelloMensaje() !== ''; else elseBlock">Mail contents: {{
+        this.getCamellito().getCamelloMensaje() }}</div>
+    <ng-template #elseBlock>
+        <div> There is blank message. This will make random camel suffer for nothing</div>
+    </ng-template>
     <button (click)="approveCamelMessage()">Aprove Abdams camel message</button>
     <button (click)="denyCamelMessage()">Deny Abdams camel message</button>
 
