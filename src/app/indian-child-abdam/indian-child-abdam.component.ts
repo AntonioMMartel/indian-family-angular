@@ -7,13 +7,14 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./indian-child-abdam.component.sass'],
 })
 export class IndianChildAbdamComponent implements OnInit {
-  message: string = '';
-  textoCamello: string = '';
+  estadoCamello: string = '';
+  textoCamello: string = 'Abmad quiere mandar mensaje';
+  mensaje: string = '';
   constructor(private camellito: IndianMessageCamelService) {}
 
   ngOnInit(): void {
     this.camellito.estadoMensajeCamellitoActual.subscribe(
-      (msg) => (this.message = msg)
+      (estado) => (this.estadoCamello = estado) // Guardamos el estado del camello
     );
   }
 
@@ -25,6 +26,7 @@ export class IndianChildAbdamComponent implements OnInit {
   }
 
   submitCamelMessage() {
-    this.camellito.updateApprovalMessage(this.textoCamello);
+    this.camellito.updateCamelloState(this.textoCamello);
+    this.camellito.setCamelloMensaje(this.mensaje);
   }
 }

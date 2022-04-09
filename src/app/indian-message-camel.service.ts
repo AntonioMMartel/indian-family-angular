@@ -10,13 +10,31 @@ import { BehaviorSubject } from 'rxjs';
 // Basicamente Abdam llamará a este servicio y este irá al padre a que lo valide.
 // Luego cuando el padre lo valide se enviará el mensaje de Abdam a su amigo Brahmad por camello.
 export class IndianMessageCamelService {
+  /*
+  Estados: 
+  1. Camello preparado jaja (Espera a la verificación del hijo (Abdam))
+  2. Abmad quiere mandar mensaje (Verificación padre (Mehdi))
+  3. Mensaje validado por Mehdi (Verificación amigo (Brahmad))
+  */
   private estadoMensajeCamellito = new BehaviorSubject(
-    'Mensaje por camello jaja'
+    'Camello preparado jaja'
   );
+
+  private camelloMensaje: string = '';
+
   estadoMensajeCamellitoActual = this.estadoMensajeCamellito.asObservable();
+
   constructor() {}
 
-  updateApprovalMessage(message: string) {
-    this.estadoMensajeCamellito.next(message);
+  setCamelloMensaje(mensaje: string) {
+    this.camelloMensaje = mensaje;
+  }
+
+  getCamelloMensaje() {
+    return this.camelloMensaje;
+  }
+
+  updateCamelloState(estado: string) {
+    this.estadoMensajeCamellito.next(estado);
   }
 }

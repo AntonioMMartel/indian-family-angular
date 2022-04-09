@@ -13,6 +13,6 @@ export class IndianFriendBrahmadComponent implements OnInit {
   ngOnInit(): void {}
 
   checkCamelMessage() {
-    this.camellito.updateApprovalMessage(this.textoCamello);
+    this.camellito.updateCamelloState(this.textoCamello);
   }
 }
